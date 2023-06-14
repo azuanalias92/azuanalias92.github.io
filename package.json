@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "build-export-windows": "npm run build; npx next export; Copy-Item -Path out\\* -Destination ..\\azuanalias92.github.io -Recurse"
   },
   "dependencies": {
     "axios": "^0.21.1",
