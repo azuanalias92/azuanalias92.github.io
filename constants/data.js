@@ -10,12 +10,12 @@ const userData = {
     {
       title: "Checkpoint Spot",
       link: "https://checkpointspot.asia",
-      imgUrl: "/cps.png",
+      imgUrl: "/cps1.png",
     },
     {
       title: "USM Expert",
       link: "http://ec2-18-140-212-199.ap-southeast-1.compute.amazonaws.com:8080/",
-      imgUrl: "/usm.png",
+      imgUrl: "/usm1.png",
     },
     {
       title: "TodoNext",
