@@ -29,12 +29,10 @@ const userData = {
     },
   ],
   about: {
-    title:
-      "I'm a software developer that loves building products and web applications that impact millions of lives",
+    title: "I'm a software developer that elevating the digital world through code",
     description: [
-      `I've been developing full-stack application since I was 21 years old. I didn't know what full-stack meant at that time because the term was not coined back then. I'm so out of content right now that I'm literally crying writing this text since lorem text is so 2012 now.`,
-      `After learning HTML and struggling with CSS, I came up with a brilliant idea of using bootstrap so that I don't have to style everything by myself and - for obvious reasons - if you knew bootstrap, you were cool.`,
-      `But now, I'm a legend. I've been coding in React, Angular, Vue, Svelte, Node.js, Express, Fastify, MongoDB, MySQL, Bootstrap, Tailwind, C, C++, C#, Rust, Haskell, Perl, PHP, Assembly, Logo and YouDontKnowShit programming language etc to name a few. Although I barely know the syntax (Psst, Stack overflow!), I consider myself a Ninja developer I'm laughing right now.`,
+      `From the moment I dabbled in coding back in high school, it was like discovering a secret superpower that allowed me to turn caffeine into lines of code, and now as a software developer, I continue on this epic quest of building amazing things and saving the world, one bug at a time.`,
+      `Equipped with a diverse array of tech skills, I've become a formidable force in the world of software development. From crafting responsive user interfaces with React (Next.js) to building robust backend systems with Node.js (NestJS) and PHP (Laravel), I thrive in bringing ideas to life using the perfect mix of tools and frameworks. With a solid grasp of cloud providers like AWS and Alibaba, along with my expertise in Git (Bitbucket, Gitlab) for version control, Redis for high-performance caching, and Docker for seamless deployment, I navigate the complexities of modern development with ease. And when it comes to streamlining workflows, I embrace CI/CD (Gitlab) to ensure smooth integration and continuous delivery. With this arsenal of skills, I'm ready to take on any challenge and create remarkable solutions that leave a lasting impact.`,
     ],
     currentProject: "Checkpoint Spot",
     currentProjectUrl: "https://checkpointspot.asia",
@@ -61,7 +59,7 @@ const userData = {
       companyLink: "http://www.prestigekinetic.com/",
       desc: "Small stuff that matter. But work as contactor is not fun at all",
     },
-   
+
     {
       title: "Graduation",
       company: "Uninversiti Sains Malaysia (Bachelor of Computer Science)",
@@ -84,14 +82,13 @@ const userData = {
       desc: "4A+ 4A- 1B+. 1 Subject let me down.I guess we don't have any CHEMISTRY",
     },
   ],
-  resumeUrl:
-    "https://drive.google.com/file/d/1nB304GjiI9Sxp7xpjUYM37TSXZ7CbGSd/view?usp=sharing",
+  resumeUrl: "https://drive.google.com/file/d/1nB304GjiI9Sxp7xpjUYM37TSXZ7CbGSd/view?usp=sharing",
   socialLinks: {
     twitter: "https://twitter.com/azuan_tra",
     linkedin: "https://my.linkedin.com/in/azuanalias",
     github: "https://github.com/azuanalias92",
     peerlist: "https://peerlist.io/azuanalias",
-    instagram: "https://www.instagram.com/azuan_alias"
+    instagram: "https://www.instagram.com/azuan_alias",
   },
 };
 

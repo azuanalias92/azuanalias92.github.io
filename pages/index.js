@@ -11,7 +11,7 @@ export default function Home({ repositories }) {
   return (
     <ContainerBlock
       title="Azuan Alias - Developer, Engineer, Problem Solver And Father"
-      description="This is a template built specifically for my blog - Creating a developer portfolio that gets you a job."
+      description="Hopefully this land me a job"
     >
       <Hero />
       <FavouriteProjects />
