@@ -57,7 +57,7 @@ const userData = {
       company: "Sentienx",
       year: "2017",
       companyLink: "http://sentienx.com",
-      desc: "Learn ",
+      desc: "Learn valuable lesson about how human really are",
     },
     {
       title: "Analysts",
