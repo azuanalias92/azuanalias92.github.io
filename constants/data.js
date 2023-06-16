@@ -53,13 +53,19 @@ const userData = {
       desc: "Tadaa! I'm in a Software Development house, making meanings through software and technology.",
     },
     {
+      title: "Software Engineer",
+      company: "Sentienx",
+      year: "2017",
+      companyLink: "http://sentienx.com",
+      desc: "Learn ",
+    },
+    {
       title: "Analysts",
       company: "Prestige Kinetic",
-      year: "2015",
+      year: "2016",
       companyLink: "http://www.prestigekinetic.com/",
       desc: "Small stuff that matter. But work as contactor is not fun at all",
     },
-
     {
       title: "Graduation",
       company: "Uninversiti Sains Malaysia (Bachelor of Computer Science)",
