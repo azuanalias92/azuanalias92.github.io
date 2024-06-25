@@ -1,7 +1,7 @@
 
 # Welcome To My Github
 
-- view my [portfolio](https://azuan.alias.com) 
+- view my [portfolio](https://azuanalias.com) 
 
 # Support
 
