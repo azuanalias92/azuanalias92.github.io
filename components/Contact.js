@@ -1,28 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
 import userData from "@constants/data";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: null
+      });
+    }
+  };
+  
+  const validateForm = () => {
+    const newErrors = {};
+    
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+    
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)) {
+      newErrors.email = "Invalid email address";
+    }
+    
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+  
   async function onSubmit(event) {
     event.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    
     const templateParams = {
-      from_name: event.target.name.value,
+      from_name: formData.name,
       to_name: "Azuan Alias",
-      from_email: event.target.email.value,
-      message: event.target.message.value,
+      from_email: formData.email,
+      message: formData.message,
     };
 
-    emailjs.send("service_becw5eh", "template_nf5omfq", templateParams, "GEmMNV66HPiLeCQG3").then(
-      (response) => {
-        alert("Email Sent!");
-        document.getElementById("email").value = "";
-        document.getElementById("name").value = "";
-        document.getElementById("message").value = "";
-      },
-      (err) => {
-        alert("Email Failed!");
-      }
-    );
+    try {
+      await emailjs.send("service_becw5eh", "template_nf5omfq", templateParams, "GEmMNV66HPiLeCQG3");
+      setSubmitStatus({ success: true, message: "Email sent successfully!" });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      setSubmitStatus({ success: false, message: "Failed to send email. Please try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
   return (
     <>
@@ -47,8 +105,11 @@ export default function Contact() {
                       type="text"
                       id="name"
                       name="name"
-                      className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className={`w-full bg-gray-100 rounded border ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                     />
+                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                   </div>
                 </div>
                 <div className="p-2 w-1/2">
@@ -60,8 +121,11 @@ export default function Contact() {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={`w-full bg-gray-100 rounded border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                     />
+                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                   </div>
                 </div>
                 <div className="p-2 w-full">
@@ -72,14 +136,27 @@ export default function Contact() {
                     <textarea
                       id="message"
                       name="message"
-                      className="w-full bg-gray-100 rounded border border-gray-300 focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                      value={formData.message}
+                      onChange={handleChange}
+                      className={`w-full bg-gray-100 rounded border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out`}
                     ></textarea>
+                    {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                   </div>
                 </div>
                 <div className="p-2 w-full">
-                  <button type="submit" className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
-                    Email Me!
+                  <button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className={`flex mx-auto text-white ${isSubmitting ? 'bg-gray-400' : 'bg-green-500 hover:bg-green-600'} border-0 py-2 px-8 focus:outline-none rounded text-lg transition-colors duration-300`}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Email Me!'}
                   </button>
+                  
+                  {submitStatus && (
+                    <div className={`mt-4 p-2 rounded text-center ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                      {submitStatus.message}
+                    </div>
+                  )}
                 </div>
               </form>
             </div>

@@ -101,6 +101,30 @@ const userData = {
     peerlist: "https://peerlist.io/azuanalias",
     instagram: "https://www.instagram.com/azuan_alias",
   },
+  
+  blog: [
+    {
+      title: "Building a Modern Portfolio with Next.js and Tailwind CSS",
+      summary: "Learn how I built this portfolio website using Next.js and Tailwind CSS, and how you can create your own.",
+      date: "March 15, 2023",
+      slug: "building-portfolio-nextjs-tailwind",
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+    },
+    {
+      title: "The Future of Web Development: My Predictions for 2023",
+      summary: "Exploring emerging trends in web development and what I believe will shape the industry in the coming year.",
+      date: "January 10, 2023",
+      slug: "future-web-development-2023",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+    },
+    {
+      title: "From Beginner to Senior Developer: My Journey",
+      summary: "Reflecting on my career path, challenges faced, and lessons learned along the way to becoming a senior developer.",
+      date: "December 5, 2022",
+      slug: "beginner-to-senior-developer-journey",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    },
+  ],
 };
 
 export default userData;

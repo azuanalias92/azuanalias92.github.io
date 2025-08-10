@@ -101,33 +101,38 @@ export default function AboutMe() {
             </div>
           </div>
           {/* Text area */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 md:col-span-2 animate-slideInFromRight">
             {userData.about.description?.map((desc, idx) => (
-              <p key={idx} className="text-xl text-gray-700 mb-4 dark:text-gray-300 ">
+              <p
+                key={idx}
+                className="text-xl text-gray-700 mb-4 dark:text-gray-300 animate-fadeIn delay-100"
+              >
                 {desc}
               </p>
             ))}
 
-            <h1 className="bg-red-500 text-3xl rounded-md px-2 py-1 inline-block font-bold text-gray-50">Tech Stack</h1>
+            <h1 className="bg-red-500 text-3xl rounded-md px-2 py-1 inline-block font-bold text-gray-50 animate-pulse">
+              Tech Stack
+            </h1>
             <div className="flex flex-row flex-wrap mt-8">
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-100"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-200"
               />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" className="h-20 w-20 mx-4 my-4" />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" className="h-20 w-20 mx-4 my-4" />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" className="h-20 w-20 mx-4 my-4" />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/firebase/firebase.png" className="h-20 w-20 mx-4 my-4" />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/laravel/laravel.png" className="h-20 w-20 mx-4 my-4" />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/express/express.png" className="h-20 w-20 mx-4 my-4" />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" className="h-20 w-20 mx-4 my-4" />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/linux/linux.png" className="h-20 w-20 mx-4 my-4" />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" className="h-20 w-20 mx-4 my-4" />
-              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redis/redis.png" className="h-20 w-20 mx-4 my-4" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-300" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-100" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-200" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/firebase/firebase.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-300" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/laravel/laravel.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-100" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/express/express.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-200" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-300" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/linux/linux.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-100" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-200" />
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redis/redis.png" className="h-20 w-20 mx-4 my-4 hover-rotate animate-fadeIn delay-300" />
             </div>
           </div>
         </div>
