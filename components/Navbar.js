@@ -80,10 +80,7 @@ export default function Navbar() {
               </svg>
             )}
           </Link>
-          <Link
-            href="/blog"
-            className={`text-base  ${router.asPath === "/blog" ? "text-gray-800 font-bold dark:text-gray-400" : "text-gray-600 dark:text-gray-300 font-normal "}`}
-          >
+          <Link href="/blog" className={`text-base  ${router.asPath === "/blog" ? "text-gray-800 font-bold dark:text-gray-400" : "text-gray-600 dark:text-gray-300 font-normal "}`}>
             Blog
             {router.asPath === "/blog" && (
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-down inline-block h-3 w-3" viewBox="0 0 16 16">
@@ -130,7 +127,7 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-      <div className="space-x-8 block md:hidden mt-4">
+      <div className="space-x-4 block md:hidden mt-4">
         <Link href="/about" className="text-base font-normal text-gray-600 dark:text-gray-300">
           About
         </Link>
@@ -142,6 +139,9 @@ export default function Navbar() {
         </Link>
         <Link href="/contact" className="text-base font-normal text-gray-600 dark:text-gray-300">
           Contact
+        </Link>
+        <Link href="/blog" className="text-base font-normal text-gray-600 dark:text-gray-300">
+          Blog
         </Link>
       </div>
     </div>
