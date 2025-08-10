@@ -8,9 +8,14 @@ const userData = {
   address: "Alor Setar, Kedah, Malaysia.",
   projects: [
     {
+      title: "Laluan Bas MY",
+      link: "https://laluanbasmy.pages.dev/map",
+      imgUrl: "/basmy.png",
+    },
+    {
       title: "Checkpoint Spot",
       link: "https://checkpointspot.asia",
-      imgUrl: "/cps1.png",
+      imgUrl: "/cps.png",
     },
     {
       title: "USM Expert",
