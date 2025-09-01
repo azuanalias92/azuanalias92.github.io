@@ -92,8 +92,8 @@ export default function Contact() {
           <div className="flex flex-row dark:bg-gray-900 pt-20 gap-8 mx-12">
             <div className="md:ml-4">
               <header className="">
-                <h1 className="text-gray-50 font-semibold text-2xl">Get in touch, let's talk.</h1>
-                <p className="font-light text-base text-gray-200 mt-2">Let's join forces and code with a touch of humor. I'm excited to stay in touch! You can find me below</p>
+                <h1 className="text-gray-500 dark:text-gray-50 font-semibold text-2xl">Get in touch, let's talk.</h1>
+                <p className="font-light text-base text-gray-400 dark:text-gray-200 mt-2">Let's join forces and code with a touch of humor. I'm excited to stay in touch! You can find me below</p>
               </header>
               <form className="flex flex-wrap -m-2 mt-8" onSubmit={onSubmit}>
                 <div className="p-2 w-1/2">
