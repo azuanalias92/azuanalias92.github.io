@@ -8,13 +8,28 @@ const userData = {
   address: "Alor Setar, Kedah, Malaysia.",
   projects: [
     {
+      title: "Komuniti Kita",
+      link: "https://komuniti-kita.pages.dev/",
+      imgUrl: "/komuniti.png",
+    },
+    {
+      title: "Pay Cycle",
+      link: "https://paycycle-three.vercel.app",
+      imgUrl: "/paycycle.png",
+    },
+    {
+      title: "AniCount",
+      link: "https://anicount.vercel.app/",
+      imgUrl: "/anicount.png",
+    },
+    {
       title: "Laluan Bas MY",
       link: "https://laluanbasmy.pages.dev/map",
       imgUrl: "/basmy.png",
     },
     {
-      title: "Solar Panel Estimator",
-      link: "https://solar-panel-estimator.vercel.app/",
+      title: "Kira Solar",
+      link: "https://kirasolar.my",
       imgUrl: "/solar.png",
     },
     {
