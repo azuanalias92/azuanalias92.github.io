@@ -35,6 +35,7 @@ export default function FavouriteProjects() {
             <ProjectCard
               key={proj.title} // Always add a key in lists
               title={proj.title}
+              description={proj.description}
               link={proj.link}
               imgUrl={proj.imgUrl}
               number={`${idx + 1}`}

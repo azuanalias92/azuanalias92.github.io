@@ -27,8 +27,12 @@ export default function Footer() {
           <div className="space-x-4 flex flex-row items-center animate-fadeIn delay-300">
             <a
               href={userData.socialLinks.instagram}
-              className="text-base font-normal text-gray-600 dark:text-gray-300 hover-scale"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Instagram profile"
+              className="inline-flex items-center justify-center rounded-full p-2 text-gray-600 transition-colors duration-200 hover:text-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:text-gray-300 dark:hover:text-white dark:focus-visible:outline-white"
             >
+              <span className="sr-only">Instagram</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -42,8 +46,12 @@ export default function Footer() {
             </a>
             <a
               href={userData.socialLinks.twitter}
-              className="text-base font-normal text-gray-600 dark:text-gray-300 hover-scale"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open Twitter profile"
+              className="inline-flex items-center justify-center rounded-full p-2 text-gray-600 transition-colors duration-200 hover:text-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:text-gray-300 dark:hover:text-white dark:focus-visible:outline-white"
             >
+              <span className="sr-only">Twitter</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -57,8 +65,12 @@ export default function Footer() {
             </a>
             <a
               href={userData.socialLinks.linkedin}
-              className="text-base font-normal text-gray-600 dark:text-gray-300 hover-scale"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open LinkedIn profile"
+              className="inline-flex items-center justify-center rounded-full p-2 text-gray-600 transition-colors duration-200 hover:text-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:text-gray-300 dark:hover:text-white dark:focus-visible:outline-white"
             >
+              <span className="sr-only">LinkedIn</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
