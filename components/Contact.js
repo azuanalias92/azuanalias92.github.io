@@ -74,7 +74,7 @@ export default function Contact() {
     };
 
     try {
-      await emailjs.send("service_becw5eh", "template_nf5omfq", templateParams, "GEmMNV66HPiLeCQG3");
+      await emailjs.send("service_becw5eh", "template_nf5omfq", templateParams, { publicKey: "GEmMNV66HPiLeCQG3" });
       setSubmitStatus({ success: true, message: "Email sent successfully!" });
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {

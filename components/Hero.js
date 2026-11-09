@@ -29,7 +29,7 @@ export default function Hero() {
               width="3840"
               height="2160"
               alt="Azuan Alias holding his daughter on a misty, terraced hillside"
-              fetchpriority="high"
+              fetchPriority="high"
               style={{ objectPosition: "30% 50%" }}
             />
           </div>

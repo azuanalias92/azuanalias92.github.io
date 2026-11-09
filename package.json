@@ -2,25 +2,28 @@
   "name": "nextjs",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export",
-    "build-export-windows": "npm run build; npx next export; Copy-Item -Path out\\* -Destination ..\\azuanalias92.github.io -Recurse"
+    "build-export-windows": "npm run build; Copy-Item -Path out\\* -Destination ..\\azuanalias92.github.io -Recurse"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.12.1",
-    "axios": "^0.21.1",
-    "next": "latest",
-    "next-themes": "latest",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-rough-notation": "^1.0.1"
+    "@emailjs/browser": "^5.0.3",
+    "axios": "^1.21.0",
+    "next": "^16.4.5",
+    "next-themes": "^0.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-rough-notation": "^1.0.8"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.12",
-    "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.1"
+    "@tailwindcss/postcss": "^4.3.5",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^4.3.5"
   }
 }

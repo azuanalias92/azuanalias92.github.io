@@ -29,7 +29,7 @@ export default function BlogPost() {
 
               {post.image && (
                 <div className="photo article__cover" data-slot="cover" data-alt={`Cover for ${post.title}`}>
-                  <img src={post.image} alt={post.title} width="1600" height="900" fetchpriority="high" />
+                  <img src={post.image} alt={post.title} width="1600" height="900" fetchPriority="high" />
                 </div>
               )}
 

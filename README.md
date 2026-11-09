@@ -18,20 +18,20 @@ The source of my personal site: who I am, the projects I've built, where I've wo
 
 ## Running it locally
 
-Needs Node 16 or newer.
+Needs Node 20.9 or newer (Next.js 16). Built with Next.js 16, React 19 and Tailwind CSS 4.
 
 ```bash
-npm ci --legacy-peer-deps
+npm ci         # or: yarn install
 npm run dev    # http://localhost:3000
 ```
-
-`--legacy-peer-deps` is needed because `react-rough-notation` declares an older React peer than the React 18 this site uses.
 
 Production build:
 
 ```bash
-npm run build
+npm run build  # writes the static site to ./out
 ```
+
+`next.config.js` sets `output: "export"`, so the build produces plain HTML in `out/`. There is no separate export step, and `npm start` does not apply to a static export.
 
 ## Editing content
 
@@ -51,7 +51,7 @@ Set `GITHUB_AUTH_TOKEN` (see `.env.example`) to make the request authenticated. 
 
 ## Deploying
 
-Pushing to `master` runs `.github/workflows/nextjs.yml`, which builds the site, exports it as static HTML and publishes it to GitHub Pages.
+Pushing to `master` runs `.github/workflows/nextjs.yml` on Node 22. It installs with yarn (because `yarn.lock` exists), builds the static site to `out/` and publishes it to GitHub Pages. Keep `yarn.lock` and `package-lock.json` in step when you change packages.
 
 ## Design
 
