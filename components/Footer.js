@@ -12,6 +12,10 @@ export default function Footer() {
         <div className="footer__base">
           <p className="footer__legal">&copy; Azuan Alias. All Rights Reserved.</p>
           <div className="footer__social">
+            <a href={userData.socialLinks.threads} target="_blank" rel="noreferrer" aria-label="Open Threads profile" className="icon-btn">
+              <span className="visually-hidden">Threads</span>
+              <BrandIcon name="threads" />
+            </a>
             <a href={userData.socialLinks.instagram} target="_blank" rel="noreferrer" aria-label="Open Instagram profile" className="icon-btn">
               <span className="visually-hidden">Instagram</span>
               <BrandIcon name="instagram" />

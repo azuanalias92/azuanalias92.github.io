@@ -41,6 +41,10 @@ export default function Navbar() {
         </nav>
 
         <div className="nav__tools">
+          <a href={userData.socialLinks.threads} target="_blank" rel="noreferrer" aria-label="Open Threads profile" className="icon-btn">
+            <span className="visually-hidden">Threads</span>
+            <BrandIcon name="threads" />
+          </a>
           <a href={userData.socialLinks.instagram} target="_blank" rel="noreferrer" aria-label="Open Instagram profile" className="icon-btn">
             <span className="visually-hidden">Instagram</span>
             <BrandIcon name="instagram" />

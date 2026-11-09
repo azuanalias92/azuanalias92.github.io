@@ -26,7 +26,6 @@ export default function LatestCode({ repositories = [] }) {
               <span>Repository</span>
               <span className="repo__lang">Language</span>
               <span>Updated</span>
-              <span className="repo__stars">Stars</span>
             </div>
             <ul className="ruled">
               {repositories.map((repo) => (
@@ -35,7 +34,6 @@ export default function LatestCode({ repositories = [] }) {
                     <span className="repo__name">{repo.name}</span>
                     <span className="repo__lang">{repo.language || "Code"}</span>
                     <span className="repo__figure">{formatUpdatedDate(repo.updated_at)}</span>
-                    <span className="repo__figure repo__stars">{repo.stargazers_count}</span>
                     {repo.description && <span className="repo__desc">{repo.description}</span>}
                   </a>
                 </li>

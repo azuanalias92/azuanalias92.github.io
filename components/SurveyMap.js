@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 // A generated survey map: contours traced from noise by marching squares,
-// paddy plots edged in dotted bunds, a river, a lane, the holding in tangerine,
+// paddy plots edged in dotted bunds, a river, a lane, the holding in the accent line colour,
 // paper grain and two fold creases. Colours come from the theme tokens, so the
 // map redraws itself when the light or dark theme is switched.
 
@@ -82,7 +82,7 @@ function draw(canvas, { seed, label, labelAt: place, scrim, plots, frame }) {
     water: v("--color-water"),
     hedge: v("--color-hedge"),
     ink: v("--color-ink"),
-    accent: v("--color-accent"),
+    accent: v("--color-accent-line"),
     muted: v("--color-muted"),
     sheet: v("--color-paper-2"),
     body: v("--font-body"),
@@ -245,7 +245,7 @@ function draw(canvas, { seed, label, labelAt: place, scrim, plots, frame }) {
     if (!narrow) hedge(Rt - R.width * 0.35, T - 10, w + 10, T - 14);
     ctx.globalAlpha = 1;
 
-    // The holding's edge, in tangerine.
+    // The holding's edge, in the accent line colour.
     ctx.strokeStyle = col.accent;
     ctx.lineWidth = 2.5;
     ctx.globalAlpha = 0.95;

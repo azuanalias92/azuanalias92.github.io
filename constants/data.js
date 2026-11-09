@@ -73,9 +73,16 @@ const userData = {
   },
   experience: [
     {
-      title: "Senior Software Developer",
+      title: "Manager, Technology Department",
       company: "Checkpoint Spot",
       year: "Current",
+      companyLink: "https://checkpointspot.asia",
+      desc: "Since January 2026.",
+    },
+    {
+      title: "Senior Software Developer",
+      company: "Checkpoint Spot",
+      year: "2023",
       companyLink: "https://checkpointspot.asia",
       desc: "Malaysia Running & Cycling Events Registration",
     },

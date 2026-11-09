@@ -6,13 +6,14 @@ const STUDY = ["Graduation", "High School"];
 
 // Where each record sits along the route, oldest bottom left, newest top right (percent of the map).
 const POINTS = [
-  [90, 10],
-  [82, 17.5],
-  [74, 25],
-  [66, 32.5],
-  [58, 40],
-  [51, 47.5],
-  [45, 55],
+  [90, 9],
+  [83.5, 15.5],
+  [77, 22],
+  [70.5, 28.5],
+  [64, 35],
+  [57.5, 41.5],
+  [51, 48],
+  [44.5, 54.5],
 ];
 
 export default function Experience() {

@@ -55,7 +55,7 @@ Pushing to `master` runs `.github/workflows/nextjs.yml` on Node 22. It installs 
 
 ## Design
 
-The site uses the Furrow theme, designed with the Hallmark design skill: manila paper, ink rules, Red Hat Display, Text and Mono, and tangerine used only as a fill. Light and dark modes are both supported (`next-themes`).
+The site uses the Furrow theme, designed with the Hallmark design skill: manila paper, ink rules, Red Hat Display, Text and Mono, and a cyan accent (#7DF9FF) used only as a fill, with deep teal for lines and focus rings. Light and dark modes are both supported (`next-themes`).
 
 - `styles/tokens.css`: every colour, font, size and spacing value, light and dark. Change the look here.
 - `styles/base.css`: base element rules.
