@@ -1,5 +1,6 @@
 import React from "react";
 import userData from "@constants/data";
+import SurveyMap from "./SurveyMap";
 
 function getProjectMeta(link) {
   try {
@@ -21,12 +22,13 @@ const pad = (number) => (number.length === 1 ? `0${number}` : number);
 export default function Projects() {
   return (
     <>
-      <section className="page-head">
+      <section className="page-head page-head--map">
+        <SurveyMap seed={53} scrim="banner" plotsAt={0.6} />
         <div className="container">
           <h1>Projects</h1>
         </div>
       </section>
-      <section className="section--tight section--flush-top" aria-label="All projects">
+      <section className="section--tight" aria-label="All projects">
         <div className="container">
           <ol className="index">
             {userData.projects.map((proj, idx) => (

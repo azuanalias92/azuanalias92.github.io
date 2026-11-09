@@ -63,7 +63,7 @@ const EDGES = {
   8: [[3, 0]], 9: [[0, 2]], 10: [[3, 2], [0, 1]], 11: [[0, 1]], 12: [[3, 1]], 13: [[2, 1]], 14: [[3, 2]],
 };
 
-function draw(canvas, { seed, label, labelAt: place, scrim, plots, frame }) {
+function draw(canvas, { seed, label, labelAt: place, scrim, plots, plotsAt, frame }) {
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
   const rect = canvas.getBoundingClientRect();
@@ -168,9 +168,11 @@ function draw(canvas, { seed, label, labelAt: place, scrim, plots, frame }) {
       ctx.moveTo(sx + off, h + 10);
       ctx.bezierCurveTo(sx + w * 0.08 + off, R.y + R.height + 40, R.x + R.width * 0.6, R.y + R.height + 90 + off, w + 10, R.y + R.height + 20 + off);
     } else {
-      const ry = h * 0.9;
-      ctx.moveTo(-10, ry + off);
-      ctx.bezierCurveTo(w * 0.3, ry - h * 0.16 + off, w * 0.55, ry + h * 0.14 + off, w + 10, ry - h * 0.08 + off);
+      const banner = scrim === "banner";
+      const ry = h * (banner ? 0.97 : 0.9);
+      const bend = banner ? 0.04 : 1;
+      ctx.moveTo(banner ? w * 0.45 : -10, ry + off);
+      ctx.bezierCurveTo(w * (banner ? 0.6 : 0.3), ry - h * 0.16 * bend + off, w * (banner ? 0.75 : 0.55), ry + h * 0.14 * bend + off, w + 10, ry - h * 0.08 * (banner ? 1.6 : 1) + off);
     }
     ctx.stroke();
   };
@@ -266,10 +268,11 @@ function draw(canvas, { seed, label, labelAt: place, scrim, plots, frame }) {
     }
   } else if (plots) {
     // Paddy plots on the right half, parted by dotted bunds.
-    const ox = w * 0.58;
-    const oy = h * 0.14;
-    const pw = Math.min(w * 0.36, 520);
-    const ph = h * 0.56;
+    const narrowPlots = w < 720;
+    const ox = w * (narrowPlots ? 0.6 : plotsAt || 0.58);
+    const oy = h * (narrowPlots ? 0.05 : 0.14);
+    const pw = Math.min(w * (narrowPlots ? 0.34 : 0.94 - (plotsAt || 0.58)), 520);
+    const ph = h * (narrowPlots ? 0.2 : 0.56);
     ctx.strokeStyle = col.hedge;
     ctx.lineWidth = 1.4;
     ctx.setLineDash([1.2, 3.4]);
@@ -294,7 +297,7 @@ function draw(canvas, { seed, label, labelAt: place, scrim, plots, frame }) {
     ctx.closePath();
     ctx.stroke();
     ctx.globalAlpha = 1;
-    lane(ox + pw * 0.48, oy + ph + 6, ox + pw * 0.36, h + 4);
+    if (!narrowPlots) lane(ox + pw * 0.48, oy + ph + 6, ox + pw * 0.36, h + 4);
     hatch(ox + pw * 0.62, oy + ph * 0.38, 30, 20);
     labelLine = [ox + 10, oy + ph * 0.5 - 6, 0.018];
   }
@@ -323,6 +326,23 @@ function draw(canvas, { seed, label, labelAt: place, scrim, plots, frame }) {
   ctx.globalAlpha = 1;
 
   // Fade the map under the text side so the words keep their contrast.
+  if (scrim === "banner") {
+    // Text sits low and to the left: fade the map from the left on wide screens, from the bottom on phones.
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.fillStyle = col.ink;
+    const steps = 48;
+    const narrow = w < 720;
+    const end = narrow ? h * 0.62 : w * 0.64;
+    for (let i = 0; i < steps; i++) {
+      const p0 = (end * i) / steps;
+      ctx.globalAlpha = Math.max(0, 0.94 * (1 - i / steps) ** 1.2);
+      if (narrow) ctx.fillRect(0, h - p0 - end / steps, w, end / steps + 1);
+      else ctx.fillRect(p0, 0, end / steps + 1, h);
+    }
+    ctx.globalCompositeOperation = "source-over";
+    ctx.globalAlpha = 1;
+  }
+
   if (scrim === "left") {
     ctx.globalCompositeOperation = "destination-out";
     ctx.fillStyle = col.ink;
@@ -340,7 +360,7 @@ function draw(canvas, { seed, label, labelAt: place, scrim, plots, frame }) {
   }
 }
 
-export default function SurveyMap({ seed = 7, label, labelAt, around, scrim = "none", plots = true, className = "", children }) {
+export default function SurveyMap({ seed = 7, label, labelAt, around, scrim = "none", plots = true, plotsAt, className = "", children }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -357,7 +377,7 @@ export default function SurveyMap({ seed = 7, label, labelAt, around, scrim = "n
     };
     const paint = () => {
       cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => draw(canvas, { seed, label, labelAt, scrim, plots, frame: measure() }));
+      frame = requestAnimationFrame(() => draw(canvas, { seed, label, labelAt, scrim, plots, plotsAt, frame: measure() }));
     };
     paint();
     const ro = new ResizeObserver(paint);
@@ -371,7 +391,7 @@ export default function SurveyMap({ seed = 7, label, labelAt, around, scrim = "n
       ro.disconnect();
       mo.disconnect();
     };
-  }, [seed, label, labelAt && labelAt.join(), around, scrim, plots]);
+  }, [seed, label, labelAt && labelAt.join(), around, scrim, plots, plotsAt]);
 
   return (
     <div className={`survey-map ${className}`}>

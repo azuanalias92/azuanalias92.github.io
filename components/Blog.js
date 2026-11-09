@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import userData from "@constants/data";
+import SurveyMap from "./SurveyMap";
 
 export default function Blog() {
   const posts = userData.blog || [];
@@ -8,12 +9,13 @@ export default function Blog() {
 
   return (
     <>
-      <section className="page-head">
+      <section className="page-head page-head--map">
+        <SurveyMap seed={67} scrim="banner" plotsAt={0.6} />
         <div className="container">
           <h1>Blog</h1>
         </div>
       </section>
-      <section className="section--tight section--flush-top" aria-label="Posts">
+      <section className="section--tight" aria-label="Posts">
         <div className="container">
           {lead ? (
             <>

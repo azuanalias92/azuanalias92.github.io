@@ -397,6 +397,7 @@
 
   .page-head { padding-block: var(--space-2xl) var(--space-xl); }
   .page-head--map { min-height: 440px; padding-bottom: var(--space-lg); }
+  .page-head--map:not(:has(.pins)) { min-height: 320px; }
   .page-head__line { margin-top: var(--space-md); }
   .head-row { margin-bottom: var(--space-xl); gap: var(--space-md); }
   .head-row__action { margin-top: 0; }

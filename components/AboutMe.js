@@ -1,5 +1,6 @@
 import React from "react";
 import userData from "@constants/data";
+import SurveyMap from "./SurveyMap";
 
 const SOCIAL = [
   { key: "threads", label: "Threads" },
@@ -16,7 +17,8 @@ const STACK = ["JavaScript", "TypeScript", "Node.js", "React", "Docker", "Fireba
 export default function AboutMe() {
   return (
     <>
-      <section className="page-head">
+      <section className="page-head page-head--map">
+        <SurveyMap seed={41} scrim="banner" plotsAt={0.7} />
         <div className="container">
           <h1>About me.</h1>
           <p className="statement page-head__line">
@@ -25,7 +27,7 @@ export default function AboutMe() {
         </div>
       </section>
 
-      <section className="section section--rule" aria-label="The long version">
+      <section className="section" aria-label="The long version">
         <div className="container story">
           <div className="story__prose">
             {userData.about.description?.map((desc, idx) => (
