@@ -1,0 +1,33 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "site",
+  "shape": "Split Studio",
+  "theme": "furrow",
+  "axes": "light/grotesk-sans/warm",
+  "hero": "Stage",
+  "nav": "three-part bar",
+  "footer": "statement",
+  "imagery": "user portrait, 9 project screenshots, 2 blog covers; survey map generated",
+  "photos": [],
+  "entry": "Stage hero over a generated survey",
+  "fingerprint": "stage/showcase/sheet/index/rows/statement-footer",
+  "sections": [
+   "Hero (portrait in the holding)",
+   "Showcase (favourite projects)",
+   "Sheet (latest code)",
+   "Footer statement"
+  ],
+  "signature": "portrait on the hillside beside Father., framed as the holding on a survey of Alor Setar",
+  "waived": [
+   "44c",
+   "79",
+   "78",
+   "77",
+   "49b"
+  ],
+  "prompt": "personal portfolio of a full-stack developer in Alor Setar, Kedah",
+  "date": "2026-11-09"
+ }
+]

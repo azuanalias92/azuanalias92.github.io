@@ -132,3 +132,6 @@
 .hover-rotate:hover {
   transform: rotate(5deg);
 }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

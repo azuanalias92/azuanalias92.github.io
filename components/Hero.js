@@ -1,62 +1,41 @@
 import React from "react";
-import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
-import { RainbowHighlight } from "./RainbowHighlight";
+import Link from "next/link";
 import userData from "@constants/data";
+import SurveyMap from "./SurveyMap";
 
 export default function Hero() {
-  const colors = ["#F59E0B", "#84CC16", "#10B981", "#3B82F6"];
   return (
-    <div className="flex flex-row justify-center items-start overflow-hidden">
-      {/* Text container */}
-
-      <div className="w-full md:w-1/2 mx-auto text-center md:text-left lg:p-20 animate-fadeIn">
-        <RoughNotationGroup show={true}>
-          <RainbowHighlight color={colors[0]}>
-            <h1 className="text-4xl md:text-8xl font-bold text-gray-700 dark:text-gray-200 my-2">
-              Developer.
-            </h1>
-          </RainbowHighlight>
-          <RainbowHighlight color={colors[1]}>
-            <h1 className="text-4xl md:text-8xl font-bold text-gray-700 dark:text-gray-200 my-2">
-              Engineer.
-            </h1>
-          </RainbowHighlight>
-          <RainbowHighlight color={colors[2]}>
-            <h1 className="text-4xl md:text-8xl font-bold text-gray-700 dark:text-gray-200 my-2">
-              Problem Solver.
-            </h1>
-          </RainbowHighlight>
-          <RainbowHighlight color={colors[3]}>
-            <h1 className="text-4xl md:text-8xl font-bold text-gray-700 dark:text-gray-200 my-2">
-              Father.
-            </h1>
-          </RainbowHighlight>
-        </RoughNotationGroup>
-      </div>
-      {/* Image container */}
-      <div className="hidden lg:block relative w-full md:w-1/2 -mr-40 mt-20 animate-slideInFromRight">
-        <div className="w-3/4 ">
-          <img src={userData.avatarUrl} alt="avatar" className="shadow hover-scale" />
-          <div className="flex flex-row justify-between mt-4">
-            <div className="flex flex-row space-x-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-arrow-90deg-up"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z"
-                />
-              </svg>
-              <p className="font-mono animate-pulse">That's me</p>
-            </div>
+    <section className="hero">
+      <SurveyMap className="hero__map" seed={11} scrim="left" around=".hero__figure" label="Alor Setar, Kedah" />
+      <div className="container hero__grid">
+        <div className="hero__text">
+          <h1 className="hero__head">
+            <span>Developer.</span>
+            <span>Engineer.</span>
+            <span>Problem solver.</span>
+            <span>Father.</span>
+          </h1>
+          <p className="lead hero__lead">Full-stack developer in Alor Setar, Kedah, now building Checkpoint Spot.</p>
+          <div className="hero__actions">
+            <Link href="/contact" className="btn btn--primary">
+              Get in touch
+            </Link>
           </div>
         </div>
+        <figure className="hero__figure">
+          <div className="photo hero__photo" data-slot="hero" data-alt="Azuan Alias outdoors, holding his daughter">
+            <img
+              src={userData.avatarUrl}
+              width="3840"
+              height="2160"
+              alt="Azuan Alias holding his daughter on a misty, terraced hillside"
+              fetchpriority="high"
+              style={{ objectPosition: "30% 50%" }}
+            />
+          </div>
+          <figcaption className="caption">That&rsquo;s me.</figcaption>
+        </figure>
       </div>
-    </div>
+    </section>
   );
 }

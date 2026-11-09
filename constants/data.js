@@ -63,10 +63,10 @@ const userData = {
     },
   ],
   about: {
-    title: "I'm a software developer that elevating the digital world through code",
+    title: "I'm a software developer, writing code since high school",
     description: [
       `From the moment I dabbled in coding back in high school, it was like discovering a secret superpower that allowed me to turn caffeine into lines of code, and now as a software developer, I continue on this epic quest of building amazing things and saving the world, one bug at a time.`,
-      `Equipped with a diverse array of tech skills, I've become a formidable force in the world of software development. From crafting responsive user interfaces with React (Next.js) to building robust backend systems with Node.js (NestJS) and PHP (Laravel), I thrive in bringing ideas to life using the perfect mix of tools and frameworks. With a solid grasp of cloud providers like AWS and Alibaba, along with my expertise in Git (Bitbucket, Gitlab) for version control, Redis for high-performance caching, and Docker for seamless deployment, I navigate the complexities of modern development with ease. And when it comes to streamlining workflows, I embrace CI/CD (Gitlab) to ensure smooth integration and continuous delivery. With this arsenal of skills, I'm ready to take on any challenge and create remarkable solutions that leave a lasting impact.`,
+      `Equipped with a diverse array of tech skills, I've become a formidable force in the world of software development. From crafting responsive user interfaces with React (Next.js) to building backend systems with Node.js (NestJS) and PHP (Laravel), I thrive in bringing ideas to life using the perfect mix of tools and frameworks. With a solid grasp of cloud providers like AWS and Alibaba, along with my expertise in Git (Bitbucket, Gitlab) for version control, Redis for high-performance caching, and Docker for deployment, I navigate the complexities of modern development with ease. And when it comes to streamlining workflows, I embrace CI/CD (Gitlab) to ensure smooth integration and continuous delivery. With this arsenal of skills, I'm ready to take on any challenge and create remarkable solutions that leave a lasting impact.`,
     ],
     currentProject: "Checkpoint Spot",
     currentProjectUrl: "https://checkpointspot.asia",

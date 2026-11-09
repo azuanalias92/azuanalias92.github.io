@@ -17,34 +17,32 @@ export default function BlogPost() {
 
   return (
     <ContainerBlock title={post?.title || "Blog Post - Azuan Alias"} description={post?.summary || "Blog post by Azuan Alias"}>
-      <div className="max-w-4xl mx-auto px-4 py-10">
-        {post ? (
-          <div className="animate-fadeIn">
-            {post.image && (
-              <div className="relative h-64 md:h-96 w-full mb-8 overflow-hidden rounded-xl animate-fadeIn delay-100">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover hover-scale" />
-              </div>
-            )}
+      <article className="article">
+        <div className="container">
+          {post ? (
+            <>
+              <header className="article__head">
+                <p className="post-meta">{post.date}</p>
+                <h1>{post.title}</h1>
+                <p className="lead article__summary">{post.summary}</p>
+              </header>
 
-            <div className="mb-6">
-              <p className="text-gray-500 dark:text-gray-400 animate-fadeIn delay-200">{post.date}</p>
-              <h1 className="text-3xl md:text-5xl font-bold mt-2 text-gray-900 dark:text-white animate-slideInFromLeft">{post.title}</h1>
+              {post.image && (
+                <div className="photo article__cover" data-slot="cover" data-alt={`Cover for ${post.title}`}>
+                  <img src={post.image} alt={post.title} width="1600" height="900" fetchpriority="high" />
+                </div>
+              )}
+
+              <div className="prose" dangerouslySetInnerHTML={{ __html: post.html }} />
+            </>
+          ) : (
+            <div className="article__head not-found">
+              <h1>Post not found</h1>
+              <p>The blog post you&rsquo;re looking for doesn&rsquo;t exist or has been removed.</p>
             </div>
-
-            <div className="prose prose-lg dark:prose-dark max-w-none animate-fadeIn delay-300">
-              <p className="text-gray-800 dark:text-gray-200 leading-relaxed">{post.summary}</p>
-
-              {/* This would be replaced with actual blog content */}
-              <div className="mt-8 space-y-6 text-gray-700 dark:text-white" dangerouslySetInnerHTML={{ __html: post.html }} />
-            </div>
-          </div>
-        ) : (
-          <div className="text-center py-20 animate-fadeIn">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white animate-slideInFromLeft">Post not found</h1>
-            <p className="mt-4 text-gray-600 dark:text-gray-400 animate-fadeIn delay-100">The blog post you're looking for doesn't exist or has been removed.</p>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      </article>
     </ContainerBlock>
   );
 }

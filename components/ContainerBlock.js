@@ -42,11 +42,14 @@ export default function ContainerBlock({ children, ...customMeta }) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <main className="dark:bg-gray-800 w-full">
+      <div className="site">
+        <a className="skip" href="#main">
+          Skip to content
+        </a>
         <Navbar />
-        <div>{children}</div>
+        <main id="main">{children}</main>
         <Footer />
-      </main>
+      </div>
     </div>
   );
 }

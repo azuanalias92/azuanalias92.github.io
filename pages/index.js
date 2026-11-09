@@ -16,3 +16,13 @@ export default function Home({ repositories }) {
     </ContainerBlock>
   );
 }
+
+export async function getStaticProps() {
+  const repositories = await getLatestRepos(userData, process.env.GITHUB_AUTH_TOKEN);
+
+  return {
+    props: {
+      repositories,
+    },
+  };
+}

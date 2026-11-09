@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import userData from "@constants/data";
 import emailjs from "@emailjs/browser";
+import SurveyMap from "./SurveyMap";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -83,92 +84,87 @@ export default function Contact() {
     }
   }
   return (
-    <>
-      <section>
-        <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800 antialiased">
-          <h1 className=" text-5xl md:text-9xl font-bold py-20 text-center md:text-left">Contact</h1>
-        </div>
-        <div className="bg-[#F1F1F1] dark:bg-gray-900 -mt-4">
-          <div className="flex flex-row dark:bg-gray-900 pt-20 gap-8 mx-12">
-            <div className="md:ml-4">
-              <header className="">
-                <h1 className="text-gray-500 dark:text-gray-50 font-semibold text-2xl">Get in touch, let's talk.</h1>
-                <p className="font-light text-base text-gray-400 dark:text-gray-200 mt-2">Let's join forces and code with a touch of humor. I'm excited to stay in touch! You can find me below</p>
-              </header>
-              <form className="flex flex-wrap -m-2 mt-8" onSubmit={onSubmit}>
-                <div className="p-2 w-1/2">
-                  <div className="relative">
-                    <label for="name" className="leading-7 text-sm">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={`w-full bg-gray-100 rounded border ${errors.name ? 'border-red-500' : 'border-gray-300'} focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
-                    />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
-                  </div>
-                </div>
-                <div className="p-2 w-1/2">
-                  <div className="relative">
-                    <label for="email" className="leading-7 text-sm ">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`w-full bg-gray-100 rounded border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
-                    />
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
-                  </div>
-                </div>
-                <div className="p-2 w-full">
-                  <div className="relative">
-                    <label for="message" className="leading-7 text-sm">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      className={`w-full bg-gray-100 rounded border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:border-indigo-500 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out`}
-                    ></textarea>
-                    {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
-                  </div>
-                </div>
-                <div className="p-2 w-full">
-                  <button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className={`flex mx-auto text-white ${isSubmitting ? 'bg-gray-400' : 'bg-green-500 hover:bg-green-600'} border-0 py-2 px-8 focus:outline-none rounded text-lg transition-colors duration-300`}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Email Me!'}
-                  </button>
-                  
-                  {submitStatus && (
-                    <div className={`mt-4 p-2 rounded text-center ${submitStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                      {submitStatus.message}
-                    </div>
-                  )}
-                </div>
-              </form>
+    <section className="contact">
+      <SurveyMap seed={31} scrim="left" around=".entry" label={userData.address.replace(/\.$/, "")} />
+      <div className="container contact__grid">
+        <header>
+          <h1>Contact</h1>
+          <p className="lead contact__lead">Get in touch, let&rsquo;s talk.</p>
+          <p className="contact__line">Let&rsquo;s join forces and code with a touch of humor. I&rsquo;m excited to stay in touch! You can find me below</p>
+          <dl className="facts">
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a href={`mailto:${userData.email}`} className="text-link">
+                  {userData.email}
+                </a>
+              </dd>
             </div>
-            <div className="hidden lg:block">
-              <img
-                className="object-cover rounded-3xl items-center justify-center "
-                src="https://images.pexels.com/photos/4240444/pexels-photo-4240444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              ></img>
+            <div>
+              <dt>Based in</dt>
+              <dd>{userData.address.replace(/\.$/, "")}</dd>
+            </div>
+          </dl>
+        </header>
+
+        <form className="entry notebook" onSubmit={onSubmit}>
+          <div className="entry__head">
+            <span className="entry__kind">Email</span>
+            <span className="entry__time">to Azuan Alias</span>
+          </div>
+          <div className="entry__cells">
+            <div className="cell" data-invalid={errors.name ? "" : undefined}>
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autoComplete="name"
+                value={formData.name}
+                onChange={handleChange}
+                aria-invalid={errors.name ? "true" : undefined}
+                aria-describedby="name-error"
+              />
+              <p className="cell__error" id="name-error">{errors.name}</p>
+            </div>
+            <div className="cell" data-invalid={errors.email ? "" : undefined}>
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autoComplete="email"
+                value={formData.email}
+                onChange={handleChange}
+                aria-invalid={errors.email ? "true" : undefined}
+                aria-describedby="email-error"
+              />
+              <p className="cell__error" id="email-error">{errors.email}</p>
+            </div>
+            <div className="cell cell--wide" data-invalid={errors.message ? "" : undefined}>
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                aria-invalid={errors.message ? "true" : undefined}
+                aria-describedby="message-error"
+              ></textarea>
+              <p className="cell__error" id="message-error">{errors.message}</p>
             </div>
           </div>
-        </div>
-      </section>
-    </>
+          <div className="entry__foot">
+            <button type="submit" disabled={isSubmitting} aria-busy={isSubmitting ? "true" : undefined} className="btn btn--primary">
+              {isSubmitting ? "Sending…" : "Email Me!"}
+            </button>
+
+            <p className={`status ${submitStatus ? (submitStatus.success ? "status--ok" : "status--fail") : ""}`} role="status" aria-live="polite" hidden={!submitStatus}>
+              {submitStatus && submitStatus.message}
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 }
